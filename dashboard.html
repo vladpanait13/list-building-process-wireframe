@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List Building Service - Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Additional CSS for enhanced dashboard styling */
+      .dashboard {
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .dashboard h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+      }
+
+      .list-card {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        transition: transform 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .list-details {
+        flex: 1;
+        text-align: left;
+      }
+
+      .list-details h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      .list-details p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .list-actions {
+        display: flex;
+        align-items: center;
+      }
+
+      .list-actions a {
+        margin-right: 10px;
+        padding: 10px 20px;
+        background-color: #ffd700;
+        color: #333;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .list-actions a:hover {
+        background-color: #ffc107;
+      }
+
+      @media (max-width: 768px) {
+        .dashboard {
+          padding: 50px 0;
+        }
+
+        .list-card {
+          flex-direction: column;
+        }
+
+        .list-actions {
+          margin-top: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">List Builder</div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="logout.html">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="dashboard">
+      <h2>Welcome, User!</h2>
+      <div class="list-card">
+        <div class="list-details">
+          <h3>List 1</h3>
+          <p>This is your first email list. Start adding subscribers now!</p>
+        </div>
+        <div class="list-actions">
+          <a href="#">View Analytics</a>
+          <a href="#">Edit List</a>
+          <a href="#">Delete List</a>
+        </div>
+      </div>
+      <div class="list-card">
+        <div class="list-details">
+          <h3>List 2</h3>
+          <p>
+            This is your second email list. Manage your subscribers effectively!
+          </p>
+        </div>
+        <div class="list-actions">
+          <a href="#">View Analytics</a>
+          <a href="#">Edit List</a>
+          <a href="#">Delete List</a>
+        </div>
+      </div>
+      <!-- Add more list cards as needed -->
+      <a href="#" class="cta-btn">Create New List</a>
+    </section>
+
+    <footer>
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="help.html">Help/Support</a></li>
+        </ul>
+      </div>
+      <div class="social-media">
+        <a href="#"><img src="facebook-icon.png" alt="Facebook" /></a>
+        <a href="#"><img src="twitter-icon.png" alt="Twitter" /></a>
+        <a href="#"><img src="instagram-icon.png" alt="Instagram" /></a>
+      </div>
+      <div class="copyright">
+        &copy; 2024 List Builder. All rights reserved.
+      </div>
+    </footer>
+    <script>
+        function viewAnalytics(listName) {
+            alert('Viewing analytics for ' + listName);
+            // Implement code to show analytics for the selected list
+        }
+
+        function editList(listName) {
+            alert('Editing ' + listName);
+            // Implement code to edit the selected list
+        }
+
+        function deleteList(listName) {
+            if (confirm('Are you sure you want to delete ' + listName + '?')) {
+                // Simulate deleting the list using fetch API
+                fetch('https://api.example.com/lists/' + listName, {
+                    method: 'DELETE'
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert(listName + ' has been deleted.');
+                        // In a real application, remove the list from the UI
+                    } else {
+                        throw new Error('Failed to delete ' + listName);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting list:', error);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
+  </body>
+</html>
